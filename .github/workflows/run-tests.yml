@@ -13,8 +13,18 @@ jobs:
     steps:
       - name: debug
         run: |
-          ls /
-          ls /home/sage
+          whoami
+          echo
+          groups
+          echo
+          ls -al /
+          echo
+          ls -al /__w
+          echo
+          ls -al /__w/isogeny-primes2
+          echo
+          ls -al /__w/isogeny-primes2/isogeny-primes2
+          echo
           pwd
       - name: Install git and make
         run: |
