@@ -1,0 +1,25 @@
+name: Run testsuite using pytest 
+
+on: [workflow_dispatch]
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    container: mderickx/sage:9.4
+
+    
+    steps:
+      - name: Install make
+        run: |
+          sudo apt-get update
+          sudo apt-get install make -y
+      - name: Install requirements
+        run: |
+          make pip-install-dev
+      - name: Check dead code
+        run: |
+          make vulture
+      - name: Run tests
+        run: |
+          make test
+
