@@ -15,7 +15,7 @@ def profile(request):
     test_names = [key for key in request.keywords if key.startswith(function.__name__)]
     test_name = test_names[0] if test_names else function.__name__
 
-    if not os.environ("PROFILE"):
+    if not os.environ.get("PROFILE"):
         yield test_name
         return
 
