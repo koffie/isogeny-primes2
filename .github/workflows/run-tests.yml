@@ -5,7 +5,9 @@ on: [workflow_dispatch]
 jobs:
   build-docker:
     runs-on: ubuntu-latest
-    container: mderickx/sagemath:9.4
+    container:
+      image: mderickx/sagemath:9.4
+      options: --user root
     # defaults:
     #  run:
     #    working-directory: /home/sage
@@ -15,7 +17,6 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           echo
-          sudo chown -R $(whoami):$(groups) /__w/isogeny-primes2/isogeny-primes2
           whoami
           echo
           groups
