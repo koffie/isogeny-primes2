@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build-docker:
     runs-on: ubuntu-latest
-    container: mderickx/sage:9.4
+    container: mderickx/sagemath:9.4
 
     
     steps:
