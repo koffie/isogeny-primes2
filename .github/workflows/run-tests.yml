@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: debug
         run: |
+          sudo chown -R $(whoami):$(groups) /__w/isogeny-primes2/isogeny-primes2
           whoami
           echo
           groups
