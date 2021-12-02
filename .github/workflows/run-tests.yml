@@ -6,13 +6,15 @@ jobs:
   build-docker:
     runs-on: ubuntu-latest
     container: mderickx/sagemath:9.4
-    defaults:
-      run:
-        working-directory: /home/sage
+    # defaults:
+    #  run:
+    #    working-directory: /home/sage
     
     steps:
       - name: debug
         run: |
+          echo $GITHUB_WORKSPACE
+          echo
           sudo chown -R $(whoami):$(groups) /__w/isogeny-primes2/isogeny-primes2
           whoami
           echo
@@ -35,10 +37,10 @@ jobs:
       - name: Install requirements
         run: |
           make pip-install-dev
-      - name: Check dead code
+      - name: make vulture
         run: |
           make vulture
-      - name: Run tests
+      - name: make test
         run: |
           make test
 
