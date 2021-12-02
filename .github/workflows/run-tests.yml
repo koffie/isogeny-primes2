@@ -9,6 +9,7 @@ jobs:
 
     
     steps:
+      - uses: actions/checkout@v2
       - name: Install make
         run: |
           sudo apt-get update
